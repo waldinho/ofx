@@ -49,10 +49,6 @@ export function getCountries() {
       "name": "Anguilla"
     },
     {
-      "code": "+1 268",
-      "name": "Antigua and Barbuda"
-    },
-    {
       "code": "+54",
       "name": "Argentina"
     },

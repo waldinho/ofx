@@ -26,19 +26,16 @@ const Form = () => {
 
     const currencies = getCurrencies().map((i) => {
         return (
-            <option value={i.code}>{i.title}</option>
+            <option value={i.code} key={i.code}>{i.title}</option>
         )
     })
 
     const countries = getCountries().map((i) => {
-        console.log('i: ', i)
         return (
-            <option value={i.code}>{i.code}</option>
+            <option value={i.code} key={i.name}>{i.code}</option>
         )
     })
-
-    console.log('rate: ', rate)
-
+    
     const handleSubmit = e => {
         e.preventDefault()
         console.log('fromCurrency1: ', fromCurrency)
@@ -61,19 +58,19 @@ const Form = () => {
     return (
         <>
         <Title><h1>Quick Quote</h1></Title>
-        <Wrapper>
             {submission 
             ? 
-            <>
-            <Quote 
-                fromCurrency={fromCurrency}
-                toCurrency={toCurrency}
-                amount={amount}
-                rate={rate.CustomerRate}
-            />
-            <button onClick={() => {setSubmission(false)}}>Get new quote</button>
-            </>
+            <Result>
+                <Quote 
+                    fromCurrency={fromCurrency}
+                    toCurrency={toCurrency}
+                    amount={amount}
+                    rate={rate.CustomerRate}
+                />
+                <button onClick={() => {setSubmission(false)}}>Get new quote</button>
+            </Result>
             :
+            <Wrapper>
             <form onSubmit={handleSubmit}>
                 <Row>
                     <Left>
@@ -166,8 +163,8 @@ const Form = () => {
                     value="Submit" 
                 /> 
             </form>
+            </Wrapper>
             }
-        </Wrapper>
         </>
     )
 }
@@ -181,6 +178,20 @@ const Title = styled.div`{
     h1 {
         line-height: 0.5em;
         }
+    }
+`
+
+const Result = styled.div`{
+    button {
+        border-color: #047db1;
+        color: #fff;
+        background-color: #047db1;
+        border-radius: 50px;
+        max-width: 210px;
+        min-height: 44px;
+        margin: 1em auto 2em auto;
+        text-transform: uppercase;
+        width: 100%;
     }
 `
     
@@ -215,11 +226,16 @@ const Wrapper = styled.div`
             background-repeat: no-repeat, repeat;
             background-position: right .7em top 50%, 0 0;
             background-size: .65em auto, 100%;
+            -o-appearance: none;
+            -ms-appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         label {
             padding: 10.5px 14px 0 14px;
         }
-        input.submit {
+        input.submit, button {
             border-color: #047db1;
             color: #fff;
             background-color: #047db1;
