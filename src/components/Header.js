@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Header = () => {
-
-    return (
-        <Heading>
-            <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg' alt='OFX' title='OFX'/>
-        </Heading>
-    )
-} 
+const Header = () => (
+    <Heading>
+        <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg' alt='OFX' title='OFX'/>
+    </Heading>
+) 
 
 const Heading = styled.div`
     background-color: #fff;

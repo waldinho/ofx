@@ -7,7 +7,6 @@ import { getCurrencies } from '../json/currencies';
 import { getCountries } from '../json/countries';
 
 const Form = () => {
-    
     const [firstname, setFirstname] = useState()
     const [surname, setSurname] = useState()
     const [email, setEmail] = useState()
@@ -18,19 +17,16 @@ const Form = () => {
     const [amount, setAmount] = useState()
     const [submission, setSubmission] = useState(false)
     const [rate, setRate] = useState([])
-
     const currencies = getCurrencies().map((i) => {
         return (
             <option value={i.code} key={i.code}>{i.title}</option>
         )
     })
-
     const countries = getCountries().map((i) => {
         return (
             <option value={i.code} key={i.name}>{i.code}</option>
         )
     })
-
     const handleSubmit = e => {
         e.preventDefault()
         getRates(fromCurrency, toCurrency).then(res => res.json())
@@ -42,124 +38,123 @@ const Form = () => {
           console.log('ERROR: Unsuccessful API call...')
         })
     }
-
     return (
         <>
         <Title>
             <h1>Quick Quote</h1>
         </Title>
-            {submission 
-            ? 
-            <Result>
-                <Quote 
-                    firstname={firstname}
-                    surname={surname}
-                    email={email}
-                    country={country}
-                    phone={phone}
-                    fromCurrency={fromCurrency}
-                    toCurrency={toCurrency}
-                    amount={amount}
-                    rate={rate.CustomerRate}
-                />
-                <button onClick={() => {setSubmission(false)}}>Get new quote</button>
-            </Result>
-            :
-            <Wrapper>
-            <form onSubmit={handleSubmit}>
-                <Row>
-                    <Left>
-                        <label>First name: <sup>*</sup></label>
-                        <input 
-                            type="text" 
-                            name="firstname" 
-                            onChange={e => {setFirstname(e.target.value)}}
-                            required
-                        />
-                    </Left>
-                    <Right>
-                        <label>Last name: <sup>*</sup></label>
-                        <input 
-                            type="text" 
-                            name="surnamname" 
-                            onChange={e => {setSurname(e.target.value)}}
-                            required
-                        />
-                    </Right>
-                </Row>
-                <Column>
-                    <label>Email: </label>
-                    <Full>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            onChange={e => {setEmail(e.target.value)}} 
-                        />
-                    </Full>
-                </Column>
-                <Column>
-                    <label>Mobile phone: </label>
-                    <Full>
-                        <select
-                            type="country"
-                            name="country" 
-                            onChange={e => {setCountry(e.target.value)}}
-                        >
-                            {countries}
-                        </select>
-                        <input 
-                            type="tel"
-                            name="phone" 
-                            onChange={e => {setPhone(e.target.value)}}
-                            maxLength="13"
-                            minLength="10"
-                        />
-                    </Full>
-                </Column>
-                <Row>
-                    <Left>
-                        <label>From Currency: <sup>*</sup></label>
-                        <select
-                            type="from"
-                            name="from" 
-                            onChange={e => {setFromCurrency(e.target.value)}}
-                            required
-                        >
-                            {currencies}
-                        </select>
-                    </Left>
-                    <Right>
-                        <label>To Currency: <sup>*</sup></label>
-                        <select
-                            type="to"
-                            name="to" 
-                            onChange={e => {setToCurrency(e.target.value)}}
-                            required
-                        >
-                            {currencies}
-                        </select>
-                    </Right>
-                </Row>
-                <Row>
-                    <Left>
-                        <label>Amount: <sup>*</sup></label>
-                        <input 
-                            type="amount" 
-                            name="amount" 
-                            onChange={e => {setAmount(e.target.value)}} 
-                            required
-                            className="amount"
-                        />
-                    </Left>
-                </Row>
-                <input 
-                    className='submit'
-                    type="submit" 
-                    value="Get Quote" 
-                /> 
-            </form>
-            </Wrapper>
-            }
+        {submission 
+        ? 
+        <Result>
+            <Quote 
+                firstname={firstname}
+                surname={surname}
+                email={email}
+                country={country}
+                phone={phone}
+                fromCurrency={fromCurrency}
+                toCurrency={toCurrency}
+                amount={amount}
+                rate={rate.CustomerRate}
+            />
+            <button onClick={() => {setSubmission(false)}}>Get new quote</button>
+        </Result>
+        :
+        <Wrapper>
+        <form onSubmit={handleSubmit}>
+            <Row>
+                <Left>
+                    <label>First name: <sup>*</sup></label>
+                    <input 
+                        type="text" 
+                        name="firstname" 
+                        onChange={e => {setFirstname(e.target.value)}}
+                        required
+                    />
+                </Left>
+                <Right>
+                    <label>Last name: <sup>*</sup></label>
+                    <input 
+                        type="text" 
+                        name="surnamname" 
+                        onChange={e => {setSurname(e.target.value)}}
+                        required
+                    />
+                </Right>
+            </Row>
+            <Column>
+                <label>Email: </label>
+                <Full>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        onChange={e => {setEmail(e.target.value)}} 
+                    />
+                </Full>
+            </Column>
+            <Column>
+                <label>Mobile phone: </label>
+                <Full>
+                    <select
+                        type="country"
+                        name="country" 
+                        onChange={e => {setCountry(e.target.value)}}
+                    >
+                        {countries}
+                    </select>
+                    <input 
+                        type="tel"
+                        name="phone" 
+                        onChange={e => {setPhone(e.target.value)}}
+                        maxLength="13"
+                        minLength="10"
+                    />
+                </Full>
+            </Column>
+            <Row>
+                <Left>
+                    <label>From Currency: <sup>*</sup></label>
+                    <select
+                        type="from"
+                        name="from" 
+                        onChange={e => {setFromCurrency(e.target.value)}}
+                        required
+                    >
+                        {currencies}
+                    </select>
+                </Left>
+                <Right>
+                    <label>To Currency: <sup>*</sup></label>
+                    <select
+                        type="to"
+                        name="to" 
+                        onChange={e => {setToCurrency(e.target.value)}}
+                        required
+                    >
+                        {currencies}
+                    </select>
+                </Right>
+            </Row>
+            <Row>
+                <Left>
+                    <label>Amount: <sup>*</sup></label>
+                    <input 
+                        type="amount" 
+                        name="amount" 
+                        onChange={e => {setAmount(e.target.value)}} 
+                        required
+                        className="amount"
+                    />
+                </Left>
+            </Row>
+            <input 
+                className='submit'
+                type="submit" 
+                value="Get Quote" 
+            /> 
+        </form>
+        </Wrapper>
+        }
         </>
     )
 }

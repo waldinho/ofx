@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Quote = ({ fromCurrency, toCurrency, amount, rate}) => {
-    const convertedAmount = rate * amount;
+    const convertedAmount = rate && amount ? rate * amount : "";
     return (
         <Wrapper>
             <p aria-label="OFX customer rate:">OFX customer rate:</p>
