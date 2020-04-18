@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import Loader from 'react-loader-spinner'
 import Quote from './Quote'
 
 import { getRates } from '../api/getRates';
@@ -18,11 +17,7 @@ const Form = () => {
     const [toCurrency, setToCurrency] = useState()
     const [amount, setAmount] = useState()
     const [submission, setSubmission] = useState(false)
-
-
     const [rate, setRate] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [hasError, setHasError] = useState(false)
 
     const currencies = getCurrencies().map((i) => {
         return (
@@ -38,30 +33,30 @@ const Form = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('fromCurrency1: ', fromCurrency)
-        console.log('toCurrency1: ', toCurrency)
         getRates(fromCurrency, toCurrency).then(res => res.json())
         .then((data) => {
           setRate(data)
-          setLoading(false)
           setSubmission(true)
         })
         .catch(() => {
-          setHasError(true)
           console.log('ERROR: Unsuccessful API call...')
         })
     }
 
-    const errorMessage = hasError ? <p aria-label='loading'>Oops something went wrong...</p> : ''
-    const nonSuccess = loading ? <div className='loader'><Loader type="Oval" color="#e40000" height={50} width={50} /></div> : errorMessage
-
     return (
         <>
-        <Title><h1>Quick Quote</h1></Title>
+        <Title>
+            <h1>Quick Quote</h1>
+        </Title>
             {submission 
             ? 
             <Result>
                 <Quote 
+                    firstname={firstname}
+                    surname={surname}
+                    email={email}
+                    country={country}
+                    phone={phone}
                     fromCurrency={fromCurrency}
                     toCurrency={toCurrency}
                     amount={amount}

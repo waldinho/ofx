@@ -4,16 +4,13 @@ import styled from 'styled-components';
 const Header = () => {
 
     return (
-        <Wrapper>
-            <header className='App-header'>
-                <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg' alt='OFX' title='OFX'/>
-            </header>
-        </Wrapper>
+        <Heading>
+            <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg' alt='OFX' title='OFX'/>
+        </Heading>
     )
-}
+} 
 
-const Wrapper = styled.div`
-.App-header {
+const Heading = styled.div`
     background-color: #fff;
     min-height: 10vh;
     display: flex;
@@ -31,7 +28,6 @@ const Wrapper = styled.div`
     .logo {
         width: 120px;
     }
-}
 `
 
 export default Header
