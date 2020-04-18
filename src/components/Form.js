@@ -35,7 +35,7 @@ const Form = () => {
             <option value={i.code} key={i.name}>{i.code}</option>
         )
     })
-    
+
     const handleSubmit = e => {
         e.preventDefault()
         console.log('fromCurrency1: ', fromCurrency)
@@ -182,6 +182,8 @@ const Title = styled.div`{
 `
 
 const Result = styled.div`{
+    width: 80%;
+    margin: 0 auto;
     button {
         border-color: #047db1;
         color: #fff;
