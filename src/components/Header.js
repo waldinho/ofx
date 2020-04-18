@@ -23,11 +23,11 @@ const Wrapper = styled.div`
     font-size: calc(10px + 2vmin);
     color: white;
     min-width: 335px;
-    padding: 2rem 0 0 0;
     position: fixed;
     top: 0;
     width: -webkit-fill-available;
     z-index: 2;
+    border-bottom: 1px solid #ededed;
     .logo {
         width: 120px;
     }

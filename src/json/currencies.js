@@ -2,7 +2,7 @@ export function getCurrencies() {
     return [
         {
             id: 0,
-            title: 'Select',
+            title: 'Select Currency',
             code: '',
         },
         {
