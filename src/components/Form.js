@@ -155,7 +155,7 @@ const Form = () => {
                 <input 
                     className='submit'
                     type="submit" 
-                    value="Submit" 
+                    value="Get Quote" 
                 /> 
             </form>
             </Wrapper>
@@ -168,6 +168,7 @@ const Title = styled.div`{
     padding: 10vh 0 0 0;
     border-bottom: 3px solid #047db1;
     width: 80%;
+    max-width:800px;
     margin: 0 auto 1em auto;
     text-align: left;
     h1 {
@@ -178,6 +179,7 @@ const Title = styled.div`{
 
 const Result = styled.div`{
     width: 80%;
+    max-width:800px;
     margin: 0 auto;
     button {
         border-color: #047db1;
@@ -189,6 +191,7 @@ const Result = styled.div`{
         margin: 1em auto 2em auto;
         text-transform: uppercase;
         width: 100%;
+        font-size: 14px;
     }
 `
     
@@ -203,6 +206,7 @@ const Wrapper = styled.div`
         background: #fefefe;
         border: 1px solid #ededed;
         width: 80%;
+        max-width:800px;
         input, select {
             border: 2px solid #ededed;
             box-sizing: border-box;
