@@ -38,7 +38,10 @@ export const button = () => `
     border-radius: 50px;
     max-width: 210px;
     min-height: 44px;
-    margin: 1em auto 2em auto;
+    margin: 2em auto;
+    @media screen and (min-width: ${mobile}) {
+        margin: 1em auto 2em auto;
+    }
     text-transform: uppercase;
     width: 100%;
     font-size: ${md};
