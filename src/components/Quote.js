@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Quote = ({ fromCurrency, toCurrency, amount, rate}) => {
-    const convertedAmount = rate && amount ? rate * amount : "";
+const Quote = ({ fromCurrency, toCurrency, amount, rate }) => {
+    const conversionRate = rate ? rate.CustomerRate : "";
+    const convertedAmount = rate && amount ? rate.CustomerAmount : "";
     return (
         <Wrapper>
             <p aria-label="OFX customer rate:">OFX customer rate:</p>
-            <h2 aria-label={rate}>{rate}</h2>
+            <h2 aria-label={conversionRate}>{conversionRate}</h2>
             <p aria-label="From:">From: </p>
             <h3 aria-label={amount}>{fromCurrency} <Blue>{amount}</Blue></h3>
             <p aria-label="To:">To: </p>

@@ -17,6 +17,7 @@ const Form = () => {
     const [amount, setAmount] = useState()
     const [submission, setSubmission] = useState(false)
     const [rate, setRate] = useState([])
+    const [error, setError] = useState()
     const currencies = getCurrencies().map((i) => {
         return (
             <option value={i.code} key={i.code}>{i.title}</option>
@@ -29,13 +30,14 @@ const Form = () => {
     })
     const handleSubmit = e => {
         e.preventDefault()
-        getRates(fromCurrency, toCurrency).then(res => res.json())
-        .then((data) => {
-          setRate(data)
+        getRates(fromCurrency, toCurrency, amount)
+        .then((response) => {
+          setRate(response)
           setSubmission(true)
         })
         .catch(() => {
           console.log('ERROR: Unsuccessful API call...')
+          setError('ERROR: There was an problem processing your quote.')
         })
     }
     return (
@@ -55,10 +57,14 @@ const Form = () => {
                 fromCurrency={fromCurrency}
                 toCurrency={toCurrency}
                 amount={amount}
-                rate={rate.CustomerRate}
+                rate={rate}
+                error={error}
             />
             <button onClick={() => {setSubmission(false)}}>Get new quote</button>
         </Result>
+        :
+        error ?
+        <Error><p aria-label={error}>{error}</p></Error>
         :
         <Wrapper>
         <form onSubmit={handleSubmit}>
@@ -188,6 +194,10 @@ const Result = styled.div`{
         width: 100%;
         font-size: 14px;
     }
+`
+
+const Error = styled.div`{
+    color: red;
 `
     
 const Wrapper = styled.div`
