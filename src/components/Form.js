@@ -186,6 +186,7 @@ const Result = styled.div`{
     margin: 0 auto;
     button {
         ${style.button}
+        font-family: ${style.font};
     }
 `
 
@@ -195,6 +196,7 @@ const Error = styled.div`{
     margin: 2em auto 0 auto;
     button {
         ${style.button}
+        font-family: ${style.font};
     }
 `
     
@@ -217,7 +219,7 @@ const Wrapper = styled.div`
             line-height: 25.5px;
             padding: 10.5px 14px 14px 14px;
             margin: 1rem 0.75rem 0 1rem;
-            font-family: 'Abel', Arial, Verdana, sans-serif;
+            font-family: ${style.font};
             @media screen and (min-width: ${style.mobile}) {
                 margin: 1rem;
             }
