@@ -33,12 +33,13 @@ const Form = () => {
         e.preventDefault()
         getRates(fromCurrency, toCurrency, amount)
         .then((response) => {
-          setRate(response)
-          setSubmission(true)
+            setRate(response)
+            setSubmission(true)
         })
         .catch(() => {
-          console.log('ERROR: Unsuccessful API call...')
-          setError('ERROR: There was an problem processing your quote.')
+            console.log('ERROR: Unsuccessful API call...')
+            setError('ERROR: There was an problem processing your quote. Make sure you are exchanging different currencies.')
+            setSubmission(false)
         })
     }
     return (
@@ -64,101 +65,104 @@ const Form = () => {
         </Result>
         :
         error ?
-        <Error><p aria-label={error}>{error}</p></Error>
+        <Error>
+            <p aria-label={error}>{error}</p>
+            <button onClick={() => {setError(false)}}>Get new quote</button>
+        </Error>
         :
         <Wrapper>
-        <form onSubmit={handleSubmit}>
-            <Row>
-                <Left>
-                    <label>First Name: <sup>*</sup></label>
-                    <input 
-                        type="text" 
-                        name="firstname" 
-                        onChange={e => {setFirstname(e.target.value)}}
-                        required
-                    />
-                </Left>
-                <Right>
-                    <label>Last Name: <sup>*</sup></label>
-                    <input 
-                        type="text" 
-                        name="surnamname" 
-                        onChange={e => {setSurname(e.target.value)}}
-                        required
-                    />
-                </Right>
-            </Row>
-            <Column>
-                <label>Email: </label>
-                <Full>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        onChange={e => {setEmail(e.target.value)}} 
-                    />
-                </Full>
-            </Column>
-            <Column>
-                <label>Telephone / Mobile: </label>
-                <Full>
-                    <select
-                        type="country"
-                        name="country" 
-                        onChange={e => {setCountry(e.target.value)}}
-                    >
-                        {countries}
-                    </select>
-                    <input 
-                        type="tel"
-                        name="phone" 
-                        onChange={e => {setPhone(e.target.value)}}
-                        maxLength="13"
-                        minLength="10"
-                    />
-                </Full>
-            </Column>
-            <Row>
-                <Left>
-                    <label>From Currency: <sup>*</sup></label>
-                    <select
-                        type="from"
-                        name="from" 
-                        onChange={e => {setFromCurrency(e.target.value)}}
-                        required
-                    >
-                        {currencies}
-                    </select>
-                </Left>
-                <Right>
-                    <label>To Currency: <sup>*</sup></label>
-                    <select
-                        type="to"
-                        name="to" 
-                        onChange={e => {setToCurrency(e.target.value)}}
-                        required
-                    >
-                        {currencies}
-                    </select>
-                </Right>
-            </Row>
-            <Row>
-                <Left>
-                    <label>Amount: <sup>*</sup></label>
-                    <input 
-                        type="number" 
-                        name="amount" 
-                        onChange={e => {setAmount(e.target.value)}} 
-                        required
-                        className="amount"
-                    />
-                </Left>
-            </Row>
-            <input 
-                className='submit'
-                type="submit" 
-                value="Get Quote" 
-            /> 
-        </form>
+            <form onSubmit={handleSubmit}>
+                <Row>
+                    <Left>
+                        <label>First Name: <sup>*</sup></label>
+                        <input 
+                            type="text" 
+                            name="firstname" 
+                            onChange={e => {setFirstname(e.target.value)}}
+                            required
+                        />
+                    </Left>
+                    <Right>
+                        <label>Last Name: <sup>*</sup></label>
+                        <input 
+                            type="text" 
+                            name="surnamname" 
+                            onChange={e => {setSurname(e.target.value)}}
+                            required
+                        />
+                    </Right>
+                </Row>
+                <Column>
+                    <label>Email: </label>
+                    <Full>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            onChange={e => {setEmail(e.target.value)}} 
+                        />
+                    </Full>
+                </Column>
+                <Column>
+                    <label>Telephone / Mobile: </label>
+                    <Full>
+                        <select
+                            type="country"
+                            name="country" 
+                            onChange={e => {setCountry(e.target.value)}}
+                        >
+                            {countries}
+                        </select>
+                        <input 
+                            type="tel"
+                            name="phone" 
+                            onChange={e => {setPhone(e.target.value)}}
+                            maxLength="13"
+                            minLength="10"
+                        />
+                    </Full>
+                </Column>
+                <Row>
+                    <Left>
+                        <label>From Currency: <sup>*</sup></label>
+                        <select
+                            type="from"
+                            name="from" 
+                            onChange={e => {setFromCurrency(e.target.value)}}
+                            required
+                        >
+                            {currencies}
+                        </select>
+                    </Left>
+                    <Right>
+                        <label>To Currency: <sup>*</sup></label>
+                        <select
+                            type="to"
+                            name="to" 
+                            onChange={e => {setToCurrency(e.target.value)}}
+                            required
+                        >
+                            {currencies}
+                        </select>
+                    </Right>
+                </Row>
+                <Row>
+                    <Left>
+                        <label>Amount: <sup>*</sup></label>
+                        <input 
+                            type="number" 
+                            name="amount" 
+                            onChange={e => {setAmount(e.target.value)}} 
+                            required
+                            className="amount"
+                        />
+                    </Left>
+                </Row>
+                <input 
+                    className='submit'
+                    type="submit" 
+                    value="Get Quote" 
+                /> 
+            </form>
         </Wrapper>
         }
         </>
@@ -186,7 +190,12 @@ const Result = styled.div`{
 `
 
 const Error = styled.div`{
-    color: red;
+    ${style.width}
+    color: ${style.red};
+    margin: 2em auto 0 auto;
+    button {
+        ${style.button}
+    }
 `
     
 const Wrapper = styled.div`
@@ -231,7 +240,7 @@ const Wrapper = styled.div`
             ${style.button}
         }
         sup {
-            color: red;
+            color: ${style.red};
         }
     }
 `

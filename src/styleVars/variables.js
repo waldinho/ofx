@@ -1,6 +1,7 @@
 // Colors
 export const blue = "#047db1";
 export const green = "#59af92";
+export const red = "#ff0000";
 export const white = "#fff";
 export const grey = "#323232";
 export const light = "#ededed";
