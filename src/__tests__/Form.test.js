@@ -36,11 +36,11 @@ amount.simulate('change', { target: { value: 'some text' } });
 describe('<Form />', function() {
     it('Should have <label> with First name label title', function(){
         const component = shallow(<Form />);
-        expect(component.find('label').at(0).text()).toEqual('First name: *');
+        expect(component.find('label').at(0).text()).toEqual('First Name: *');
     });
     it('Should have <label> with Surname label title', function(){
         const component = shallow(<Form />);
-        expect(component.find('label').at(1).text()).toEqual('Last name: *');
+        expect(component.find('label').at(1).text()).toEqual('Last Name: *');
     });
     it('Should have <label> with Email label title', function(){
         const component = shallow(<Form />);
@@ -48,7 +48,7 @@ describe('<Form />', function() {
     });
     it('Should have <label> with Mobile phone label title', function(){
         const component = shallow(<Form />);
-        expect(component.find('label').at(3).text()).toEqual('Mobile phone: ');
+        expect(component.find('label').at(3).text()).toEqual('Telephone / Mobile: ');
     });
     it('Should have <label> with From Currency label title', function(){
         const component = shallow(<Form />);

@@ -70,7 +70,7 @@ const Form = () => {
         <form onSubmit={handleSubmit}>
             <Row>
                 <Left>
-                    <label>First name: <sup>*</sup></label>
+                    <label>First Name: <sup>*</sup></label>
                     <input 
                         type="text" 
                         name="firstname" 
@@ -79,7 +79,7 @@ const Form = () => {
                     />
                 </Left>
                 <Right>
-                    <label>Last name: <sup>*</sup></label>
+                    <label>Last Name: <sup>*</sup></label>
                     <input 
                         type="text" 
                         name="surnamname" 
@@ -99,7 +99,7 @@ const Form = () => {
                 </Full>
             </Column>
             <Column>
-                <label>Mobile phone: </label>
+                <label>Telephone / Mobile: </label>
                 <Full>
                     <select
                         type="country"
