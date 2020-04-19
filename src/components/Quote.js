@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import * as style from '../styleVars/variables.js';
@@ -40,5 +41,21 @@ const Blue = styled.div`
     display: inline;
 }
 `
+
+Quote.propTypes = {
+    fromCurrency: PropTypes.string.isRequired,
+    toCurrency: PropTypes.string.isRequired, 
+    amount: PropTypes.string.isRequired, 
+    rate: PropTypes.shape({
+        CustomerRate: PropTypes.number.isRequired,
+        CustomerAmount: PropTypes.number.isRequired,
+    })
+}
+
+Quote.defaultProps = {
+    fromCurrency: "",
+    toCurrency: "", 
+    amount: "",
+}
 
 export default Quote

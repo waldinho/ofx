@@ -59,7 +59,6 @@ const Form = () => {
                 toCurrency={toCurrency}
                 amount={amount}
                 rate={rate}
-                error={error}
             />
             <button onClick={() => {setSubmission(false)}}>Get new quote</button>
         </Result>
