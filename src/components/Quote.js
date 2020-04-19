@@ -5,13 +5,14 @@ import * as style from '../styleVars/variables.js';
 
 const Quote = ({ fromCurrency, toCurrency, amount, rate }) => {
     const conversionRate = rate ? rate.CustomerRate : "";
-    const convertedAmount = rate && amount ? rate.CustomerAmount : "";
+    const originalAmount = amount ? amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+    const convertedAmount = rate && amount ? rate.CustomerAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
     return (
         <Wrapper>
             <p aria-label="OFX customer rate:">OFX customer rate:</p>
             <h2 aria-label={conversionRate}>{conversionRate}</h2>
             <p aria-label="From:">From: </p>
-            <h3 aria-label={amount}>{fromCurrency} <Blue>{amount}</Blue></h3>
+            <h3 aria-label={originalAmount}>{fromCurrency} <Blue>{originalAmount}</Blue></h3>
             <p aria-label="To:">To: </p>
             <h3 aria-label={convertedAmount}>{toCurrency} <Blue>{convertedAmount}</Blue></h3>
         </Wrapper>
