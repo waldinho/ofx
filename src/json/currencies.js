@@ -1,34 +1,28 @@
 export function getCurrencies() {
     return [
         {
-            id: 0,
-            title: 'Select Currency',
-            code: '',
+            title: "Select Currency",
+            code: "",
         },
         {
-            id: 1,
-            title: 'Austalian Dollar',
-            code: 'AUD',
+            title: "Austalian Dollar",
+            code: "AUD",
         },
         {
-            id: 2,
-            title: 'Euro',
-            code: 'EUR',
+            title: "Euro",
+            code: "EUR",
         },
         {
-            id: 3,
-            title: 'British Pound',
-            code: 'GBP',
+            title: "British Pound",
+            code: "GBP",
         },
         {
-            id: 4,
-            title: 'Japanese Yen',
-            code: 'JPY',
+            title: "Japanese Yen",
+            code: "JPY",
         },
         {
-            id: 5,
-            title: 'US Dollar',
-            code: 'USD',
+            title: "US Dollar",
+            code: "USD",
         }
     ]
 }
