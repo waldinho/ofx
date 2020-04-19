@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import * as style from '../json/variables.js';
+import * as style from '../styleVars/variables.js';
 
 const Header = () => (
     <Heading>

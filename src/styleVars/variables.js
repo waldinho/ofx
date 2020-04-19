@@ -6,6 +6,9 @@ export const grey = "#323232";
 export const light = "#ededed";
 export const lighter = "#fefefe";
 
+// Font 
+export const font = "'Abel', Arial, Verdana, sans-serif";
+
 // Font sizes 
 export const sm = "10px";
 export const md = "14px";

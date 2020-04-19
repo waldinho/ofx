@@ -5,7 +5,7 @@ import Quote from './Quote'
 import { getRates } from '../api/getRates';
 import { getCurrencies } from '../json/currencies';
 import { getCountries } from '../json/countries';
-import * as style from '../json/variables.js';
+import * as style from '../styleVars/variables.js';
 
 const Form = () => {
     const [firstname, setFirstname] = useState()
@@ -209,6 +209,7 @@ const Wrapper = styled.div`
             line-height: 25.5px;
             padding: 10.5px 14px 14px 14px;
             margin: 1rem 0.75rem 0 1rem;
+            font-family: 'Abel', Arial, Verdana, sans-serif;
             @media screen and (min-width: ${style.mobile}) {
                 margin: 1rem;
             }
