@@ -33,4 +33,4 @@ Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ### `Alternatively you can view the web hosted version here:` 
-<a href="">[Link here]</a>
+<a href="https://ofx-tech-test.firebaseapp.com/">ofx-tech-test.firebaseapp.com/</a>

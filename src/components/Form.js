@@ -168,7 +168,7 @@ const Form = () => {
 const Title = styled.div`{
     padding: 10vh 0 0 0;
     border-bottom: 3px solid #047db1;
-    width: 80%;
+    width: 90%;
     max-width:800px;
     margin: 0 auto 1em auto;
     text-align: left;
@@ -179,7 +179,7 @@ const Title = styled.div`{
 `
 
 const Result = styled.div`{
-    width: 80%;
+    width: 90%;
     max-width:800px;
     margin: 0 auto;
     button {
@@ -210,7 +210,7 @@ const Wrapper = styled.div`
         flex-direction: column;
         background: #fefefe;
         border: 1px solid #ededed;
-        width: 80%;
+        width: 90%;
         max-width:800px;
         input, select {
             border: 2px solid #ededed;
