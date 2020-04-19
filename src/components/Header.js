@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import * as style from '../json/variables.js';
+
 const Header = () => (
     <Heading>
         <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg' alt='OFX' title='OFX'/>
@@ -8,20 +10,19 @@ const Header = () => (
 ) 
 
 const Heading = styled.div`
-    background-color: #fff;
+    background-color: ${style.white};
     min-height: 10vh;
-    display: flex;
-    flex-direction: column;
+    ${style.column}
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    font-size: calc(${style.sm} + 2vmin);
+    color: ${style.white};
     min-width: 335px;
     position: fixed;
     top: 0;
     width: -webkit-fill-available;
     z-index: 2;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid ${style.light};
     .logo {
         width: 120px;
     }

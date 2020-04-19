@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import * as style from '../json/variables.js';
+
 const Quote = ({ fromCurrency, toCurrency, amount, rate }) => {
     const conversionRate = rate ? rate.CustomerRate : "";
     const convertedAmount = rate && amount ? rate.CustomerAmount : "";
@@ -23,17 +25,17 @@ const Wrapper = styled.div`
     max-width: 210px;
     line-height: 0.5rem;
     h2 {
-        color: #59af92;
+        color: ${style.green};
         text-align: center;
     }
     p {
-        font-size: 18px;
+        font-size: ${style.lg};
     }
 }
 `
 
 const Blue = styled.div`
-    color: #047db1;
+    color: ${style.blue};
     display: inline;
 }
 `

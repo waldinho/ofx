@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> with no props should match the snapshot 1`] = `"<div class=\\"sc-AxjAm foMRyn\\"><img class=\\"logo\\" src=\\"https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg\\" alt=\\"OFX\\" title=\\"OFX\\"/></div>"`;
+exports[`<Header /> with no props should match the snapshot 1`] = `"<div class=\\"sc-AxjAm eHuyJZ\\"><img class=\\"logo\\" src=\\"https://upload.wikimedia.org/wikipedia/commons/9/94/OFX_Logo.svg\\" alt=\\"OFX\\" title=\\"OFX\\"/></div>"`;
